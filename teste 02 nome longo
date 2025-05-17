@@ -1,0 +1,18 @@
+using Xunit;
+
+public class ChamadoTests
+{
+    [Fact]
+    public void ChamadoComDescricaoMuitoLonga_DeveSerInvalido()
+    {
+        var chamado = new Chamado
+        {
+            Titulo = "Sistema travando",
+            Descricao = new string('A', 600), // mais de 500 caracteres
+            Categoria = "TI",
+            IdFuncionario = 2
+        };
+
+        Assert.False(chamado.Validar());
+    }
+}
