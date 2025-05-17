@@ -1,0 +1,19 @@
+using Xunit;
+
+public class ChamadoTests
+
+{
+    [Fact]
+    public void ChamadoComTituloVazio_DeveSerInvalido()
+    {
+        var chamado = new Chamado
+        {
+            Titulo = "",
+            Descricao = "Erro ao iniciar sistema",
+            Categoria = "TI",
+            IdFuncionario = 1
+        };
+
+        Assert.False(chamado.Validar());
+    }
+}
